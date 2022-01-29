@@ -1,0 +1,64 @@
+version: '3.5'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    command:
+      [ "postgres", "-c", "wal_level=logical" ]
+    volumes:
+      - "vol_postgres:/var/lib/postgresql/data"
+    networks:
+      - metadata_net
+
+  metadata-deployer:
+    image: metadata/contexts:metadata-deployer-latest
+    container_name: metadata-deployer
+    build:
+      context: ../metadata-deployer
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+      - "1081:1081"
+    environment:
+      JAVA_OPTS: '-Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1081 -Xms64m -Xmx512m'
+      DB_DRIVER: ${DB_DRIVER}
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - metadata_net
+
+  metadata-app:
+    image: metadata/contexts:metadata-app-latest
+    container_name: metadata-app
+    build:
+      context: ../metadata-app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "1080:1080"
+    environment:
+      JAVA_OPTS: '-Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1082 -Xms64m -Xmx512m'
+      DB_DRIVER: ${DB_DRIVER}
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db
+      - metadata-deployer
+    networks:
+      - metadata_net
+
+volumes:
+  vol_postgres:
+
+networks:
+  metadata_net:
+    driver: bridge
