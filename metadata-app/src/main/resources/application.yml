@@ -24,3 +24,11 @@ cache:
     maximumSize: 800
     expireAfterAccess: 8
     expirationAfterAccessUnits: HOURS
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+  graphiql:
+    enabled: true
