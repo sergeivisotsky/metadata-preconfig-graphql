@@ -1,0 +1,4 @@
+import "view_metadata.graphqls"
+extend type ViewMetadata {
+    a: String
+}
