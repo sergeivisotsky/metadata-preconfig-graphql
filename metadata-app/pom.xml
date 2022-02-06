@@ -43,6 +43,10 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>io.github.kobylynskyi</groupId>
                 <artifactId>graphql-codegen-maven-plugin</artifactId>
                 <executions>
@@ -53,7 +57,28 @@
                         <configuration>
                             <graphqlSchemaPaths>
                                 <graphqlSchemaPath>
-                                    ${project.basedir}/src/main/resources/graphql/extended_view_metadata.graphqls
+                                    ${project.basedir}/src/main/resources/graphql/query.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/view_metadata.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/navigation_metadata.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/lookup.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/form_metadata.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/view_metadata.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/enum.graphqls
+                                </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/chart_metadata.graphqls
                                 </graphqlSchemaPath>
                             </graphqlSchemaPaths>
                             <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>

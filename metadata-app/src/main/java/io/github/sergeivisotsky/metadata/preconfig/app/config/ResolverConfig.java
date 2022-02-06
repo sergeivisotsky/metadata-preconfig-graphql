@@ -15,12 +15,19 @@
  */
 package io.github.sergeivisotsky.metadata.preconfig.app.config;
 
+import io.github.sergeivisotsky.metadata.engine.dao.FormMetadataDao;
+import io.github.sergeivisotsky.metadata.engine.dao.LookupMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.ViewMetadataDao;
-import io.github.sergeivisotsky.metadata.engine.graphql.resolver.ChartMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.engine.graphql.resolver.FormMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.engine.graphql.resolver.LookupMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.engine.graphql.resolver.ViewMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.engine.graphql.resolver.ViewQueryGraphQLQueryResolver;
+import io.github.sergeivisotsky.metadata.engine.dao.ViewQueryDao;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ChartMetadataQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.FormMetadataQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.LookupMetadataQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewMetadataQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewQueryGraphQLQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.FormMetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.LookupMetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewMetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewQueryMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,23 +38,23 @@ import org.springframework.context.annotation.Configuration;
 public class ResolverConfig {
 
     @Bean
-    public ViewMetadataQueryResolver viewMetadataQueryResolver(ViewMetadataDao viewMetadataDao) {
-        return new ViewMetadataQueryResolver(viewMetadataDao);
+    public ViewMetadataQueryResolver viewMetadataQueryResolver(ViewMetadataDao viewMetadataDao, ViewMetadataMapper mapper) {
+        return new ViewMetadataQueryResolver(viewMetadataDao, mapper);
     }
 
     @Bean
-    public ViewQueryGraphQLQueryResolver viewQueryGraphQLQueryResolver() {
-        return new ViewQueryGraphQLQueryResolver();
+    public ViewQueryGraphQLQueryResolver viewQueryGraphQLQueryResolver(ViewMetadataDao metadataDao, ViewQueryDao queryDao, ViewQueryMapper mapper) {
+        return new ViewQueryGraphQLQueryResolver(metadataDao, queryDao, mapper);
     }
 
     @Bean
-    public LookupMetadataQueryResolver lookupMetadataQueryResolver() {
-        return new LookupMetadataQueryResolver();
+    public LookupMetadataQueryResolver lookupMetadataQueryResolver(LookupMetadataDao lookupMetadataDao, LookupMetadataMapper mapper) {
+        return new LookupMetadataQueryResolver(lookupMetadataDao, mapper);
     }
 
     @Bean
-    public FormMetadataQueryResolver formMetadataQueryResolver() {
-        return new FormMetadataQueryResolver();
+    public FormMetadataQueryResolver formMetadataQueryResolver(FormMetadataDao formMetadataDao, FormMetadataMapper mapper) {
+        return new FormMetadataQueryResolver(formMetadataDao, mapper);
     }
 
     @Bean
