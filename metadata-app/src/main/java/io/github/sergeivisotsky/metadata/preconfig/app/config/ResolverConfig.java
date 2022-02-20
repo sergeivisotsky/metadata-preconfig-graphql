@@ -18,16 +18,13 @@ package io.github.sergeivisotsky.metadata.preconfig.app.config;
 import io.github.sergeivisotsky.metadata.engine.dao.FormMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.LookupMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.ViewMetadataDao;
-import io.github.sergeivisotsky.metadata.engine.dao.ViewQueryDao;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ChartMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.FormMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.LookupMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewQueryGraphQLQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.FormMetadataMapper;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.LookupMetadataMapper;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewMetadataMapper;
-import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewQueryMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -40,11 +37,6 @@ public class ResolverConfig {
     @Bean
     public ViewMetadataQueryResolver viewMetadataQueryResolver(ViewMetadataDao viewMetadataDao, ViewMetadataMapper mapper) {
         return new ViewMetadataQueryResolver(viewMetadataDao, mapper);
-    }
-
-    @Bean
-    public ViewQueryGraphQLQueryResolver viewQueryGraphQLQueryResolver(ViewMetadataDao metadataDao, ViewQueryDao queryDao, ViewQueryMapper mapper) {
-        return new ViewQueryGraphQLQueryResolver(metadataDao, queryDao, mapper);
     }
 
     @Bean
