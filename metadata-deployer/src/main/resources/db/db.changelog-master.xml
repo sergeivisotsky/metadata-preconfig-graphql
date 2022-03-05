@@ -8,7 +8,6 @@
     <include file="/db/core/db.changelog-master-core.xml"/>
 
     <!-- custom -->
-    <include file="/db/db.changelog-24-08-2021.xml"/>
     <include file="/db/db.changelog-custom-schema.xml"/>
     <include file="/db/db.changelog-custom-data.xml"/>
 

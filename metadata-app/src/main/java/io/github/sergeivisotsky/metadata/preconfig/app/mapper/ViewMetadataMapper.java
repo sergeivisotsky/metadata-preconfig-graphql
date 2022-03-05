@@ -41,8 +41,6 @@ public class ViewMetadataMapper implements MetadataMapper<ViewMetadata> {
             metadata.setFont(rs.getString("font"));
             metadata.setFontSize(rs.getInt("font_size"));
             metadata.setDescription(rs.getString("description"));
-
-            metadata.setFacet(rs.getString("facet"));
             return metadata;
         } catch (SQLException e) {
             throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
