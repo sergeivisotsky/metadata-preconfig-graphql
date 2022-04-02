@@ -3,9 +3,10 @@ package io.github.sergeivisotsky.metadata.preconfig.app.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedLookupMetadata;
 import io.github.sergeivisotsky.metadata.engine.domain.LookupMetadata;
+import io.github.sergeivisotsky.metadata.engine.exception.MetadataStorageException;
 import io.github.sergeivisotsky.metadata.engine.mapper.MetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedLookupMetadata;
 
 public class LookupMetadataMapper implements MetadataMapper<LookupMetadata> {
 
@@ -32,7 +33,7 @@ public class LookupMetadataMapper implements MetadataMapper<LookupMetadata> {
 
             return metadata;
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
+            throw new MetadataStorageException("Unable to get value from ResultSet for Mapper: {}" +
                     LookupMetadataMapper.class.getSimpleName(), e);
         }
     }

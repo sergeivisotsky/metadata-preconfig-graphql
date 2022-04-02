@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedNavigation;
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedNavigationElement;
 import io.github.sergeivisotsky.metadata.engine.domain.Navigation;
 import io.github.sergeivisotsky.metadata.engine.domain.NavigationElement;
 import io.github.sergeivisotsky.metadata.engine.domain.NavigationType;
+import io.github.sergeivisotsky.metadata.engine.exception.MetadataStorageException;
 import io.github.sergeivisotsky.metadata.engine.mapper.MetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedNavigation;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedNavigationElement;
 
 public class NavigationMapper implements MetadataMapper<List<Navigation>> {
 
@@ -52,7 +53,7 @@ public class NavigationMapper implements MetadataMapper<List<Navigation>> {
             }
             return navFromRsList;
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
+            throw new MetadataStorageException("Unable to get value from ResultSet for Mapper: {}" +
                     LookupMetadataMapper.class.getSimpleName(), e);
         }
     }

@@ -4,10 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedViewMetadata;
 import io.github.sergeivisotsky.metadata.engine.domain.Language;
 import io.github.sergeivisotsky.metadata.engine.domain.ViewMetadata;
+import io.github.sergeivisotsky.metadata.engine.exception.MetadataStorageException;
 import io.github.sergeivisotsky.metadata.engine.mapper.MetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedViewMetadata;
 
 public class ViewMetadataMapper implements MetadataMapper<ViewMetadata> {
 
@@ -43,7 +44,7 @@ public class ViewMetadataMapper implements MetadataMapper<ViewMetadata> {
             metadata.setDescription(rs.getString("description"));
             return metadata;
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
+            throw new MetadataStorageException("Unable to get value from ResultSet for Mapper: {}" +
                     ViewMetadataMapper.class.getSimpleName(), e);
         }
     }

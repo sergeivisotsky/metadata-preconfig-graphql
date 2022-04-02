@@ -3,10 +3,11 @@ package io.github.sergeivisotsky.metadata.preconfig.app.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedViewField;
 import io.github.sergeivisotsky.metadata.engine.domain.FieldType;
 import io.github.sergeivisotsky.metadata.engine.domain.ViewField;
+import io.github.sergeivisotsky.metadata.engine.exception.MetadataStorageException;
 import io.github.sergeivisotsky.metadata.engine.mapper.MetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedViewField;
 
 public class ViewFieldMapper implements MetadataMapper<ViewField> {
 
@@ -58,7 +59,7 @@ public class ViewFieldMapper implements MetadataMapper<ViewField> {
 
             return viewField;
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
+            throw new MetadataStorageException("Unable to get value from ResultSet for Mapper: {}" +
                     ViewFieldMapper.class.getSimpleName(), e);
         }
     }

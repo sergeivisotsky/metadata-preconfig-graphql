@@ -3,9 +3,10 @@ package io.github.sergeivisotsky.metadata.preconfig.app.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedComboBox;
 import io.github.sergeivisotsky.metadata.engine.domain.ComboBox;
+import io.github.sergeivisotsky.metadata.engine.exception.MetadataStorageException;
 import io.github.sergeivisotsky.metadata.engine.mapper.MetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.domain.ExtendedComboBox;
 
 public class ComboBoxMapper implements MetadataMapper<ComboBox> {
 
@@ -42,7 +43,7 @@ public class ComboBoxMapper implements MetadataMapper<ComboBox> {
             comboBox.setDisplayable(rs.getBoolean("displayable"));
             return comboBox;
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to get value from ResultSet for Mapper: {}" +
+            throw new MetadataStorageException("Unable to get value from ResultSet for Mapper: {}" +
                     ViewMetadataMapper.class.getSimpleName(), e);
         }
     }
