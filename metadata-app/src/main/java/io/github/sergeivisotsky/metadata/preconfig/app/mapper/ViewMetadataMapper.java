@@ -22,8 +22,7 @@ public class ViewMetadataMapper implements MetadataMapper<ViewMetadata> {
                 "       fm.padding,\n" +
                 "       fm.font,\n" +
                 "       fm.font_size,\n" +
-                "       fm.description,\n" +
-                "       fm.facet\n" +
+                "       fm.description\n" +
                 "FROM view_metadata fm\n" +
                 "WHERE fm.view_name = :viewName\n" +
                 "  AND fm.language = :lang";
