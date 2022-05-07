@@ -26,6 +26,7 @@ services:
       - "1081:1081"
     environment:
       JAVA_OPTS: '-Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1081 -Xms64m -Xmx512m'
+      PORT: ${DEPLOYER_PORT}
       DB_DRIVER: ${DB_DRIVER}
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}
@@ -46,6 +47,7 @@ services:
       - "1080:1080"
     environment:
       JAVA_OPTS: '-Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:1082 -Xms64m -Xmx512m'
+      PORT: ${APP_PORT}
       DB_DRIVER: ${DB_DRIVER}
       DB_URL: ${DB_URL}
       DB_USERNAME: ${DB_USERNAME}

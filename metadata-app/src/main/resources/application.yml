@@ -1,11 +1,4 @@
-server:
-  port: 8080
-
 datasource:
-  driverClassName: ${DB_DRIVER}
-  url: ${DB_URL}
-  username: ${DB_USERNAME}
-  password: ${DB_PASSWORD}
   sql-dialect: postgresql
 
 cache:
