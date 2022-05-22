@@ -27,7 +27,7 @@ import io.github.sergeivisotsky.metadata.engine.domain.ViewMetadata;
 import io.github.sergeivisotsky.metadata.engine.domain.ViewQueryResult;
 import io.github.sergeivisotsky.metadata.engine.exception.UrlParseException;
 import io.github.sergeivisotsky.metadata.engine.filtering.dto.ViewQuery;
-import io.github.sergeivisotsky.metadata.engine.graphql.PageableGraphQLParser;
+import io.github.sergeivisotsky.metadata.engine.graphql.filtering.GraphQLViewQueryParser;
 import io.github.sergeivisotsky.metadata.graphql.model.OrderDto;
 import io.github.sergeivisotsky.metadata.graphql.model.PagingDto;
 import io.github.sergeivisotsky.metadata.graphql.model.SortDirectionDto;
@@ -47,13 +47,13 @@ public class ViewQueryGraphQLQueryResolver implements ViewQueryQueryResolver {
 
     private final ViewQueryDao queryDao;
     private final ViewMetadataDao metadataDao;
-    private final PageableGraphQLParser pageableGraphQLParser;
+    private final GraphQLViewQueryParser viewQueryParser;
 
     public ViewQueryGraphQLQueryResolver(ViewQueryDao queryDao, ViewMetadataDao metadataDao,
-                                         PageableGraphQLParser pageableGraphQLParser) {
+                                         GraphQLViewQueryParser pageableGraphQLParser) {
         this.queryDao = queryDao;
         this.metadataDao = metadataDao;
-        this.pageableGraphQLParser = pageableGraphQLParser;
+        this.viewQueryParser = pageableGraphQLParser;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ViewQueryGraphQLQueryResolver implements ViewQueryQueryResolver {
         ViewMetadata metadata = metadataDao.getViewMetadata(viewName, lang);
 
         try {
-            ViewQuery query = pageableGraphQLParser.constructViewQuery(metadata, params);
+            ViewQuery query = viewQueryParser.constructViewQuery(metadata, params);
             ViewQueryResult queryResult = queryDao.query(metadata, query);
 
             // TODO: This looks weird! Refactor...

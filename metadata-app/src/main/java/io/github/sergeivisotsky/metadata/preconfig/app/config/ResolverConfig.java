@@ -19,7 +19,7 @@ import io.github.sergeivisotsky.metadata.engine.dao.FormMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.LookupMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.ViewMetadataDao;
 import io.github.sergeivisotsky.metadata.engine.dao.ViewQueryDao;
-import io.github.sergeivisotsky.metadata.engine.graphql.PageableGraphQLParser;
+import io.github.sergeivisotsky.metadata.engine.graphql.filtering.GraphQLViewQueryParser;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ChartMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.FormMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.LookupMetadataQueryResolver;
@@ -59,7 +59,7 @@ public class ResolverConfig {
 
     @Bean
     public ViewQueryGraphQLQueryResolver viewQueryGraphQLQueryResolver(ViewQueryDao queryDao, ViewMetadataDao metadataDao,
-                                                                       PageableGraphQLParser pageableGraphQLParser) {
-        return new ViewQueryGraphQLQueryResolver(queryDao, metadataDao, pageableGraphQLParser);
+                                                                       GraphQLViewQueryParser viewQueryParser) {
+        return new ViewQueryGraphQLQueryResolver(queryDao, metadataDao, viewQueryParser);
     }
 }
