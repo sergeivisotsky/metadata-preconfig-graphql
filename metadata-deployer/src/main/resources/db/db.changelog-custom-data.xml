@@ -6,7 +6,6 @@
 
     <changeSet id="38-2" author="svisockis">
         <insert tableName="some_sample_table">
-            <column name="id" value="1"/>
             <column name="column_one" value="some_value_one"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
@@ -16,7 +15,6 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="1"/>
             <column name="a_column_one" value="some_seven"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
@@ -24,11 +22,10 @@
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="1"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="2"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_1"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -37,19 +34,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="2"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_1"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="2"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_1')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="3"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_2"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -58,19 +53,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="3"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_2"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="3"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_2')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="4"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_3"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -79,19 +72,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="4"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_3"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="4"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_3')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="5"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_4"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -100,19 +91,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="5"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_4"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="5"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_4')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="6"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_5"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -121,19 +110,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="6"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_5"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="6"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_5')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="7"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_6"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -142,19 +129,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="7"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_6"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="7"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_6')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="8"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_7"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -163,19 +148,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="8"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_7"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="8"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_7')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="9"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_8"/>
             <column name="column_two" value="some value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -184,19 +167,17 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="9"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_8"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="9"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_8')"/>
         </insert>
         <insert tableName="some_sample_table">
-            <column name="id" value="10"/>
-            <column name="column_one" value="some_value_one"/>
+            <column name="column_one" value="some_value_one_9"/>
             <column name="column_two" value="some_value_two"/>
             <column name="column_three" value="some_value_three"/>
             <column name="column_four" value="some_value_four"/>
@@ -205,15 +186,14 @@
             <column name="column_seven" value="some_value_seven"/>
         </insert>
         <insert tableName="some_sample_table_two">
-            <column name="id" value="10"/>
-            <column name="a_column_one" value="some_seven"/>
+            <column name="a_column_one" value="some_seven_9"/>
             <column name="b_column_two" value="some_six"/>
             <column name="c_column_three" value="some_five"/>
             <column name="d_column_four" value="some_four"/>
             <column name="e_column_five" value="some_three"/>
             <column name="f_column_six" value="some_two"/>
             <column name="g_column_seven" value="some_one"/>
-            <column name="some_sample_table_one_id" value="10"/>
+            <column name="some_sample_table_one_id" valueComputed="(SELECT id FROM some_sample_table WHERE column_one = 'some_value_one_9')"/>
         </insert>
     </changeSet>
 
@@ -240,7 +220,7 @@
                                                   {order}
                                                   {offset}
                                                   {limit}"/>
-            <where>id = 1</where>
+            <where>view_name = 'main'</where>
         </update>
     </changeSet>
 
