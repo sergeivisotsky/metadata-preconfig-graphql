@@ -21,7 +21,7 @@ public class ComboBoxMapper implements MetadataMapper<ComboBox> {
                 "       cb.displayable,\n" +
                 "       cb.immutable,\n" +
                 "       cbc.id            AS combo_content_id,\n" +
-                "       cbc.key           AS content_key,\n" +
+                "       cbc.content_key   AS content_key,\n" +
                 "       cbc.default_value AS content_value\n" +
                 "FROM combo_box cb\n" +
                 "         JOIN combo_box_and_content_relation cbacr ON cb.id = cbacr.box_id\n" +
