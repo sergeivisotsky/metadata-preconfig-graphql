@@ -24,10 +24,11 @@ import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ChartMetadataQue
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.FormMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.LookupMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewMetadataQueryResolver;
-import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewQueryGraphQLQueryResolver;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.ViewQueryGraphQLResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.FormMetadataMapper;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.LookupMetadataMapper;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewMetadataMapper;
+import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewQueryResponseMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -58,8 +59,9 @@ public class ResolverConfig {
     }
 
     @Bean
-    public ViewQueryGraphQLQueryResolver viewQueryGraphQLQueryResolver(ViewQueryDao queryDao, ViewMetadataDao metadataDao,
-                                                                       GraphQLViewQueryParser viewQueryParser) {
-        return new ViewQueryGraphQLQueryResolver(queryDao, metadataDao, viewQueryParser);
+    public ViewQueryGraphQLResolver viewQueryGraphQLQueryResolver(ViewQueryDao queryDao, ViewMetadataDao metadataDao,
+                                                                  GraphQLViewQueryParser viewQueryParser,
+                                                                  ViewQueryResponseMapper viewQueryResponseMapper) {
+        return new ViewQueryGraphQLResolver(queryDao, metadataDao, viewQueryParser, viewQueryResponseMapper);
     }
 }

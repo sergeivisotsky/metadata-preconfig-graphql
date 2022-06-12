@@ -7,5 +7,5 @@ type Query {
     getFormMetadata(lang: String!, formName: String!): FormMetadata
     getLookupMetadata(lookupName: String!, lang: String!): LookupHolder
     getChartMetadata(chartName: String!): ChartMetadata
-    viewQuery(viewName: String!, lang: String!, offset: Long, limit: Int): ViewQueryResponse
+    viewQuery(viewName: String!, lang: String!, offset: Long, limit: Int, sort: String): ViewQueryResponse
 }
