@@ -1,7 +1,6 @@
 package io.github.sergeivisotsky.metadata.preconfig.app.resolver;
 
 import io.github.sergeivisotsky.metadata.engine.dao.ViewMetadataDao;
-import io.github.sergeivisotsky.metadata.engine.domain.ViewMetadata;
 import io.github.sergeivisotsky.metadata.graphql.model.ViewMetadataDto;
 import io.github.sergeivisotsky.metadata.graphql.resolver.GetViewMetadataQueryResolver;
 import io.github.sergeivisotsky.metadata.preconfig.app.resolver.mapper.ViewMetadataMapper;

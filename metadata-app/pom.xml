@@ -80,6 +80,9 @@
                                 <graphqlSchemaPath>
                                     ${project.basedir}/src/main/resources/graphql/chart_metadata.graphqls
                                 </graphqlSchemaPath>
+                                <graphqlSchemaPath>
+                                    ${project.basedir}/src/main/resources/graphql/view_query.graphqls
+                                </graphqlSchemaPath>
                             </graphqlSchemaPaths>
                             <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>
                             <apiPackageName>io.github.sergeivisotsky.metadata.graphql.resolver</apiPackageName>
